@@ -19,7 +19,10 @@
 			<input type="submit" value="更新">
 		</form>
 		
-		<a href="/Car_rental_system/Car_Delete_Servlet">
+		<% 
+			String url = "/Car_rental_system/Car_Delete_Servlet?id=" + car.getCarid();
+		%>
+		<a href=<%=url %>>
 			<input name="删除" type="button" id="btn1" title="不知道是什么意思" value="删除" />
 		</a>
 	</body>

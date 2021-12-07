@@ -14,18 +14,18 @@
 				<td>编号</td>
 				<td>车牌</td>
 				<td>租金</td>
-		</tr></br>
+		</tr><br>
 					
 				<%	
 					
 					ArrayList<Car> arr = (ArrayList<Car>)request.getAttribute("arr");
-					Integer integer = (Integer)request.getAttribute("page");
+					Integer integer = (Integer)session.getAttribute("page");
 					
 					int j = 10*integer;
 					for( int i = j; i<j+10; i++ ) {
 						if ( i < arr.size()) {
 				%>			
-				</br>
+				<br>
 				<tr>
 							<td>
 								<% 
@@ -43,6 +43,13 @@
 						}
 					}
 				%>
+				
+				<br>
+				<a href="/Car_rental_system/jsp/car/car_insert.jsp">
+					<input name="新增汽车信息" type="button" id="btn1" title="不知道是什么意思" value="新增汽车信息" />
+				</a>
+				
+				
 				<a href="/Car_rental_system/Car_All_Servlet?value=0">
 					<input name="上一页" type="button" id="btn1" title="不知道是什么意思" value="上一页" />
 				</a>
