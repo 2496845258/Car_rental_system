@@ -58,5 +58,10 @@
 				<a href="/Car_rental_system/Order_All_Servlet?value=1">
 					<input name="下一页" type="button" id="btn1" title="不知道是什么意思" value="下一页" />
 				</a>
+				
+				<br>
+				<a href="/Car_rental_system/jsp/admin.jsp">
+					<input name="主页" type="button" id="btn1" title="不知道是什么意思" value="主页" />
+				</a>
 	</body>
 </html>

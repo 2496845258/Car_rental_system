@@ -26,16 +26,6 @@ import jakarta.servlet.http.HttpServletResponse;
 public class User_Update_Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * Default constructor. 
-     */
-    public User_Update_Servlet() {
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		User user = new User();
@@ -44,8 +34,7 @@ public class User_Update_Servlet extends HttpServlet {
 		user.setPasswor(request.getParameter("passwor"));
 		user.setUsername(request.getParameter("username"));
 		user.setTelephone(request.getParameter("telephone"));
-		
-		System.out.println(user.getAccount()+user.getPasswor()+user.getTelephone()+user.getUsername()+user.getUserid());
+
 		
 		try {
 			if ( DAOFactory.getIUserDAOInstance().doUpdata(user) ) {
