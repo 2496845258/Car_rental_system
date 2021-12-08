@@ -116,7 +116,7 @@ public class UserDAOImpl implements IUserDAO {
 		// TODO 自动生成的方法存根
 		boolean flag = false;
 		
-		String sql = "update user set  account=? password=? username=? telephone=? where userid=?";
+		String sql = "update user set  account=?,password=?,username=?,telephone=? where userid=?";
 		
 		this.preparedStatement=this.connection.prepareStatement(sql);
 		

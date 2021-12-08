@@ -1,14 +1,14 @@
-package com.controller.car;
+package com.controller.order;
 
 import java.io.IOException;
-
 
 
 
 import java.util.ArrayList;
 
 import com.factory.DAOFactory;
-import com.vo.Car;
+
+import com.vo.Order;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -17,15 +17,21 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
-@WebServlet("/Car_All_Servlet")
-public class Car_All_Servlet extends HttpServlet {
+/**
+ * Servlet implementation class Order_All_Servlet
+ */
+@WebServlet("/Order_All_Servlet")
+public class Order_All_Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+    /**
+     * Default constructor. 
+     */
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		try {
-			ArrayList<Car> arr = DAOFactory.getICarDAOInstance().findAll();
+			ArrayList<Order> arr = DAOFactory.getIOrderDAOInstance().findAll();
 			if ( arr != null ) {
 				request.setAttribute("arr", arr);
 				
@@ -38,7 +44,7 @@ public class Car_All_Servlet extends HttpServlet {
 				
 				
 				if ( request.getParameter("value") == null ) {
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/car/car_all.jsp");
+					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/order/order_all.jsp");
 			        requestDispatcher.forward(request,response);
 				}else {
 					if ( request.getParameter("value").equals("1") ) {
@@ -51,7 +57,7 @@ public class Car_All_Servlet extends HttpServlet {
 						request.getSession().setAttribute("page", integer);
 					}
 					
-					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/car/car_all.jsp");
+					RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/order/order_all.jsp");
 			        requestDispatcher.forward(request,response);
 				}
 			}else {
@@ -62,13 +68,12 @@ public class Car_All_Servlet extends HttpServlet {
 			e.printStackTrace();
 		}	
 	}
-	
-	
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

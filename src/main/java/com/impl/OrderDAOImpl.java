@@ -73,12 +73,13 @@ public class OrderDAOImpl implements IOrderDAO{
 	@Override
 	public Order findById(Order order) throws Exception {
 		// TODO 自动生成的方法存根
-
+		
 		Order order2 = null;
 		String sql = "SELECT * FROM orders WHERE orderid=?";
 		
 		this.preparedStatement=this.connection.prepareStatement(sql);
 		this.preparedStatement.setInt(1, order.getOrderid());
+		
 		ResultSet rs=this.preparedStatement.executeQuery();
 		
 		if(rs.next()){
@@ -89,10 +90,11 @@ public class OrderDAOImpl implements IOrderDAO{
 			order2.setUserid(rs.getInt(2));
 			order2.setUsername(rs.getString(3));
 			order2.setCarid(rs.getInt(4));
+			
 		}
 		
 		this.preparedStatement.close();
-
+		
 		return order2;
 
 	}

@@ -1,27 +1,34 @@
-package com.controller.car;
+package com.controller.user;
 
 import java.io.IOException;
 
 
+
+
+
+
 import com.factory.DAOFactory;
-import com.vo.Car;
+
+import com.vo.User;
+
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 /**
- * Servlet implementation class Car_Delete_Servlet
+ * Servlet implementation class User_Insert_Servlet
  */
-@WebServlet("/Car_Delete_Servlet")
-public class Car_Delete_Servlet extends HttpServlet {
+@WebServlet("/User_Insert_Servlet")
+public class User_Insert_Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * Default constructor. 
      */
-    public Car_Delete_Servlet() {
+    public User_Insert_Servlet() {
         // TODO Auto-generated constructor stub
     }
 
@@ -29,19 +36,24 @@ public class Car_Delete_Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Integer id = Integer.parseInt(request.getParameter("id"));
-		Car car = new Car();
-		car.setCarid(id);
+		// TODO Auto-generated method stub
+		User user = new User();
+		user.setAccount(request.getParameter("account"));
+		user.setPasswor(request.getParameter("passwor"));
+		user.setUsername(request.getParameter("username"));
+		user.setTelephone(request.getParameter("telephone"));
+		
+		
 		try {
-			if ( DAOFactory.getICarDAOInstance().deleteById(car) ) {
+			if ( DAOFactory.getIUserDAOInstance().doInsert(user) ) {
 				// 请求重定向
 				request.getSession().setAttribute("page", 0);
-		        response.sendRedirect("/Car_rental_system/Car_All_Servlet");
+		        response.sendRedirect("/Car_rental_system/User_All_Servlet");
 			}else {
-				
+				//错误提示
 			}
-			
 		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}

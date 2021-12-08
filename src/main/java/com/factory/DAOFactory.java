@@ -14,7 +14,7 @@ public class DAOFactory {
 	public static IUserDAO getIUserDAOInstance() throws Exception{
 		return new IUserDAOProxy();
 	}
-	public static IOrderDAO getIOrdreDAOInstance() throws Exception{
+	public static IOrderDAO getIOrderDAOInstance() throws Exception{
 		return new IOrderDAOProxy();
 	}
 }

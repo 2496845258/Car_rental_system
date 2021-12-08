@@ -25,6 +25,7 @@ public class Car_Id_Servlet extends HttpServlet {
 			Car car2 = DAOFactory.getICarDAOInstance().findById(car);
 			if ( car2 != null ) {
 				request.setAttribute("car", car2);
+				
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("/jsp/car/car_update.jsp");
 		        requestDispatcher.forward(request,response);
 			}else {
